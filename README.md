@@ -218,6 +218,11 @@
 
 ##### PUT /articles/:id/clapped
 ###### give clap to article
+```
+{
+    "message": "You have clapped the article"
+}
+```
 
 ##### GET /articles/me/bookmarked
 ###### get articles that user has been bookmarked
@@ -268,9 +273,46 @@
 ##### GET /articles/me/clap
 ###### get articles that user has been clapped
 ```
-{
-    "message": "You have clapped the article"
-}
+[
+  {
+    "id": 1,
+    "UserId": 20,
+    "ArticleId": 1,
+    "createdAt": "2020-05-19T15:34:07.297Z",
+    "updatedAt": "2020-05-19T15:34:07.297Z",
+    "Article": {
+        "id": 1,
+        "title": "trial 1",
+        "img_url": "google.com",
+        "body": "this is trial 1",
+        "clap": 43,
+        "date": "2020-05-19T12:23:22.761Z",
+        "category": "science",
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:23:22.761Z",
+        "updatedAt": "2020-05-19T15:36:35.583Z"
+    }
+  },
+  {
+    "id": 2,
+    "UserId": 20,
+    "ArticleId": 6,
+    "createdAt": "2020-05-19T15:41:40.001Z",
+    "updatedAt": "2020-05-19T15:41:40.001Z",
+    "Article": {
+        "id": 6,
+        "title": "judl",
+        "img_url": "google",
+        "body": "body",
+        "clap": 2,
+        "date": "2020-05-19T12:43:36.169Z",
+        "category": "science",
+        "UserId": 45,
+        "createdAt": "2020-05-19T12:43:36.169Z",
+        "updatedAt": "2020-05-19T15:41:42.047Z"
+    }
+  }
+]
 ```
 
 ##### GET /user/:id

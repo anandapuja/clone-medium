@@ -115,7 +115,7 @@ class ControllerAction {
       where: {
         [Op.and]: [
           { UserId: req.user.userId },
-          { ArticleId: id}
+          { ArticleId: id }
         ]
       }
     })
@@ -127,51 +127,63 @@ class ControllerAction {
       .catch(error => next(error))
   }
 
-  static getBookmarked(req,res,next){
+  static getBookmarked(req, res, next) {
     Bookmark.findAll({
-      where:{UserId:req.user.userId},
-      include:{model: Article}})
-    .then(data=>{
-      res.status(200).json(data)
+      where: { UserId: req.user.userId },
+      include: { model: Article }
     })
-    .catch(error => next(error))
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(error => next(error))
   }
 
-  static clapArticle(req,res,next){
+  static clapArticle(req, res, next) {
     const id = req.params.id
     Clap.findOne({
       where: {
         [Op.and]: [
           { UserId: req.user.userId },
-          { ArticleId: id}
+          { ArticleId: id }
         ]
       }
     })
-    .then(data=>{
-      if(data){
-         return data
-      } else{
-        return Clap.create({
-          UserId: req.user.userId,
-          ArticleId: id
-        })
-      }
-    })
-    .then(()=>{
-      return Article.findByPk(id)
-    })
-    .then(theData=>{
-      theData.clap ++
-      return Article.update({
-        clap: theData.clap
-      },{where:{id:id}})
-    })
-    .then(()=>{
-      res.status(200).json({
-        message: 'You have clapped the article'
+      .then(data => {
+        if (data) {
+          return data
+        } else {
+          return Clap.create({
+            UserId: req.user.userId,
+            ArticleId: id
+          })
+        }
       })
+      .then(() => {
+        return Article.findByPk(id)
+      })
+      .then(theData => {
+        theData.clap++
+        return Article.update({
+          clap: theData.clap
+        }, { where: { id: id } })
+      })
+      .then(() => {
+        res.status(200).json({
+          message: 'You have clapped the article'
+        })
+      })
+      .catch(error => next(error))
+  }
+
+  static getClapped(req, res, next) {
+    Clap.findAll({
+      where: { UserId: req.user.userId },
+      include: { model: Article }
     })
-    .catch(error => next(error))
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(error => next(error))
   }
 }
 

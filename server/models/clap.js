@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
 
   Clap.associate = function(models) {
     // associations can be defined here
+    Clap.belongsTo(models.User)
+    Clap.belongsTo(models.Article,{foreignKey: 'ArticleId'})
   };
   return Clap;
 };

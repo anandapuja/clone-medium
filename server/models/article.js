@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   Article.associate = function(models) {
     // associations can be defined here
     Article.hasOne(models.Bookmark,{foreignKey: 'ArticleId'})
+    Article.hasOne(models.Clap,{foreignKey: 'ArticleId'})
     Article.hasOne(models.Clap)
     Article.belongsTo(models.User)
   };
