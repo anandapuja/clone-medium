@@ -18,5 +18,6 @@ router.get('/articles/me/bookmarked', authentication,controllerAction.getBookmar
 router.put('/articles/:id/clap', authentication,controllerAction.clapArticle);
 router.get('/articles/me/clapped', authentication,controllerAction.getClapped)
 
+router.get('/writer/:id', authentication,controllerAction.getWriter)
 
 module.exports = router

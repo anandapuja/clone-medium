@@ -1,4 +1,4 @@
-const { Article, Bookmark, Clap } = require('../models');
+const { User,Article, Bookmark, Clap } = require('../models');
 const { Op } = require('sequelize')
 
 class ControllerAction {
@@ -184,6 +184,15 @@ class ControllerAction {
         res.status(200).json(data)
       })
       .catch(error => next(error))
+  }
+
+  static getWriter(req,res,next){
+    const id = req.params.id;
+    User.findByPk(id,{include:{model: Article}})
+    .then(data=>{
+      res.status(200).json(data)
+    })
+    .catch(error => next(error))
   }
 }
 
