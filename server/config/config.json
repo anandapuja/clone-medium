@@ -1,19 +1,17 @@
 {
   "development": {
-    "username": "root",
+    "username": "fuzail",
     "password": null,
-    "database": "database_development",
+    "database": "medium",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "test": {
-    "username": "root",
+    "username": "fuzail",
     "password": null,
-    "database": "database_test",
+    "database": "medium",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",

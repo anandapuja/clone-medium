@@ -4,8 +4,37 @@
 ---
 
 ##### POST /register
+- Request Body:
+```
+{
+  "user_name" : <user_name>,
+  "email" : <email>,
+  "password" : <password> 
+}
+```
+
+- Response (201):
+```
+{
+  "access_token" : <access_token>
+}
+```
 
 ##### POST /login
+- Request Body:
+```
+{
+  "email" : <email>,
+  "password" : <password> 
+}
+```
+
+- Response (201):
+```
+{
+  "access_token" : <access_token>
+}
+```
 
 ##### GET /articles
 ###### get all article
