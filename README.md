@@ -418,14 +418,137 @@
 }
 ```
 
-##### POST /writer/:id/message
+##### POST /writer/:writerid/message
 ###### post message tu user
+- Request Body:
+```
+{
+	"title_message": "this is title",
+	"title_body": "this is my message"
+}
+```
+
+- Response (201):
+```
+{
+    "id": 1,
+    "title_message": "this is title",
+    "body_message": "this is my message",
+    "date": "2020-05-19T21:03:46.830Z",
+    "UserId": 20,
+    "SenderId": 21,
+    "updatedAt": "2020-05-19T21:03:46.831Z",
+    "createdAt": "2020-05-19T21:03:46.831Z"
+}
+```
 
 ##### GET /messages
-###### get our messages
+###### get all messages
+- Response (200):
+```
+[
+  {
+    "id": 3,
+    "title_message": "this is title",
+    "body_message": "this is my message",
+    "date": "2020-05-19T21:11:31.518Z",
+    "UserId": 21,
+    "SenderId": 20,
+    "createdAt": "2020-05-19T21:11:31.520Z",
+    "updatedAt": "2020-05-19T21:11:31.520Z",
+    "User": {
+        "id": 21,
+        "email": "fuza@mail.com",
+        "user_name": "fuza",
+        "password": "$2a$10$lMZSEZr7fC5Mp3dsg6ZXsu34q9VIBVWssKS3vgPgTUXiQRb9rMacy",
+        "createdAt": "2020-05-19T21:02:14.563Z",
+        "updatedAt": "2020-05-19T21:02:14.563Z"
+    }
+  },
+  {
+    "id": 4,
+    "title_message": "this is title",
+    "body_message": "this is my message",
+    "date": "2020-05-19T21:11:38.632Z",
+    "UserId": 21,
+    "SenderId": 20,
+    "createdAt": "2020-05-19T21:11:38.632Z",
+    "updatedAt": "2020-05-19T21:11:38.632Z",
+    "User": {
+        "id": 21,
+        "email": "fuza@mail.com",
+        "user_name": "fuza",
+        "password": "$2a$10$lMZSEZr7fC5Mp3dsg6ZXsu34q9VIBVWssKS3vgPgTUXiQRb9rMacy",
+        "createdAt": "2020-05-19T21:02:14.563Z",
+        "updatedAt": "2020-05-19T21:02:14.563Z"
+    }
+  }
+]
+```
 
 ##### GET /messages/:id
 ##### get message by id
+- Response (200):
+```
+{
+  "id": 4,
+  "title_message": "this is title",
+  "body_message": "this is my message",
+  "date": "2020-05-19T21:11:38.632Z",
+  "UserId": 21,
+  "SenderId": 20,
+  "createdAt": "2020-05-19T21:11:38.632Z",
+  "updatedAt": "2020-05-19T21:11:38.632Z",
+  "Responses": [
+    {
+        "id": 1,
+        "response": "woi",
+        "date": "2020-05-19T21:23:17.133Z",
+        "MessageId": 4,
+        "UserId": 21,
+        "createdAt": "2020-05-19T21:23:17.133Z",
+        "updatedAt": "2020-05-19T21:23:17.133Z",
+        "User": {
+            "id": 21,
+            "email": "fuza@mail.com",
+            "user_name": "fuza",
+            "password": "$2a$10$lMZSEZr7fC5Mp3dsg6ZXsu34q9VIBVWssKS3vgPgTUXiQRb9rMacy",
+            "createdAt": "2020-05-19T21:02:14.563Z",
+            "updatedAt": "2020-05-19T21:02:14.563Z"
+        }
+    },
+    {
+        "id": 2,
+        "response": "mamam",
+        "date": "2020-05-19T21:33:12.024Z",
+        "MessageId": 4,
+        "UserId": 20,
+        "createdAt": "2020-05-19T21:33:12.024Z",
+        "updatedAt": "2020-05-19T21:33:12.024Z",
+        "User": {
+            "id": 20,
+            "email": "asdf@mail.com",
+            "user_name": "asdf",
+            "password": "$2a$10$0z96o3gFUtvPUeSrpQzHM./W2sSM9axFBKzmpRJeHVPk/FNrv3Ry2",
+            "createdAt": "2020-05-19T12:12:06.658Z",
+            "updatedAt": "2020-05-19T12:12:06.658Z"
+        }
+    }
+  ]
+}
+```
 
 ##### POST /messages/:id/response
 ###### post response message by id message
+- Response (201):
+```
+{
+    "id": 3,
+    "response": "woi",
+    "date": "2020-05-19T21:54:06.003Z",
+    "MessageId": 4,
+    "UserId": 21,
+    "updatedAt": "2020-05-19T21:54:06.004Z",
+    "createdAt": "2020-05-19T21:54:06.004Z"
+}
+```

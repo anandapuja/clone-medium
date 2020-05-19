@@ -1,4 +1,4 @@
-const { User,Article, Bookmark, Clap } = require('../models');
+const { User, Article, Bookmark, Clap, Message, Response } = require('../models');
 const { Op } = require('sequelize')
 
 class ControllerAction {
@@ -186,11 +186,77 @@ class ControllerAction {
       .catch(error => next(error))
   }
 
-  static getWriter(req,res,next){
+  static getWriter(req, res, next) {
     const id = req.params.id;
-    User.findByPk(id,{include:{model: Article}})
+    User.findByPk(id, { include: { model: Article } })
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(error => next(error))
+  }
+
+  static addMessage(req, res, next) {
+    const writerId = req.params.writerid
+    const inputData = req.body
+    Message.create({
+      title_message: inputData.title_message,
+      body_message: inputData.body_message,
+      date: Date.now(),
+      UserId: writerId,
+      SenderId: req.user.userId
+    })
+      .then(data => {
+        res.status(201).json(data)
+      })
+      .catch(error => next(error))
+  }
+
+  static getMessages(req, res, next) {
+    Message.findAll({
+      where: { UserId: req.user.userId },
+      include: { model: User }
+    })
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(error => next(error))
+  }
+
+  static getMessage(req, res, next) {
+    const id = req.params.idmessage
+    Message.findByPk(id,
+      { include:[{model:Response, include:{model:User}}]})
+      .then(data => {
+        if (data) {
+          if (data.UserId == req.user.userId) {
+            res.status(200).json(data)
+          } else {
+            throw {
+              status: 403,
+              message: 'Unauthorized'
+            }
+          }
+        } else {
+          throw {
+            status: 404,
+            message: 'Message not found'
+          }
+        }
+      })
+      .catch(error => next(error))
+  }
+
+  static addResponse(req,res,next){
+    const inputData = req.body
+    const id = req.params.idmessage
+    Response.create({
+      response: inputData.response,
+      date: Date.now(),
+      MessageId:id,
+      UserId: req.user.userId
+    })
     .then(data=>{
-      res.status(200).json(data)
+      res.status(201).json(data)
     })
     .catch(error => next(error))
   }

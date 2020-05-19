@@ -42,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Bookmark)
     User.hasMany(models.Clap)
     User.hasMany(models.Article)
+    User.hasMany(models.Response)
   };
   return User;
 };
