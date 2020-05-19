@@ -28,7 +28,7 @@
 ##### PUT /articles/:id/bookmarked
 ###### bookmark article
 
-##### PUT /articles/:id/claped
+##### PUT /articles/:id/clapped
 ###### give clap to article
 
 ##### GET /articles/me/bookmarked
