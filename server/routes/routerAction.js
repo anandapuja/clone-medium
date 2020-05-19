@@ -3,6 +3,7 @@ const controllerAction = require('../controllers/controllerAction');
 const authentication = require('../middlewares/authentication')
 const authorization = require('../middlewares/authorization')
 
+// articles
 router.get('/articles', authentication,controllerAction.getArticles);
 router.get('/articles/:id', authentication,controllerAction.getArticle);
 router.post('/articles',authentication,controllerAction.addArticle);
