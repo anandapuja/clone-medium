@@ -31,11 +31,13 @@ class ControllerAuth{
           res.status(200).json({access_token:token})
         }else{
           throw {
+            status: 400,
             message: 'Wrong password'
           }
         }
       }else{
         throw {
+          status:404,
           message: 'Email not found'
         }
       }

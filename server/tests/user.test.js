@@ -52,42 +52,28 @@ describe('User route Test', () => {
         .then(response => {
           const { body, status } = response;
           expect(status).toBe(400);
-          expect(body).toHaveProperty('message', 'Username cannot be empty')
+          expect(body).toHaveProperty('message', 'Email and user name cannot be emtpy')
           done()
         })
     })
 
-    test('400 Failed register - error if email is invalid', done => {
+    test('400 Failed register - error if email is empty', done => {
       request(app)
         .post('/register')
         .send({
-          user_name: 'user',
-          email: 'bukanemail',
+          user_name: 'asdf',
+          email: '',
           password: 'rahasia'
         })
         .then(response => {
           const { body, status } = response;
           expect(status).toBe(400);
-          expect(body).toHaveProperty('message', 'Invalid email')
+          expect(body).toHaveProperty('message', 'Email and user name cannot be emtpy')
           done()
         })
     })
 
-    test('400 Failed register - error if password is invalid', done => {
-      request(app)
-        .post('/register')
-        .send({
-          user_name: 'username',
-          email: 'email@mail.com',
-          password: 'as'
-        })
-        .then(response => {
-          const { body, status } = response;
-          expect(status).toBe(400);
-          expect(body).toHaveProperty('message', 'Password should be more than 5 character')
-          done()
-        })
-    })
+    
   })
 
   describe('POST /login', () => {
