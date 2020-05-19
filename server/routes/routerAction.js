@@ -15,5 +15,8 @@ router.put('/articles/:id/bookmark',authentication,controllerAction.saveArticle)
 router.delete('/articles/:id/unbookmark', authentication,controllerAction.unSaveArticle);
 router.get('/articles/me/bookmarked', authentication,controllerAction.getBookmarked);
 
+router.put('/articles/:id/clap', authentication,controllerAction.clapArticle);
+router.get('/articles/me/clapped', authentication,controllerAction.getClapped)
+
 
 module.exports = router

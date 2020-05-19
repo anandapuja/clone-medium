@@ -1,4 +1,4 @@
-const { Article, Bookmark } = require('../models');
+const { Article, Bookmark, Clap } = require('../models');
 const { Op } = require('sequelize')
 
 class ControllerAction {
@@ -133,6 +133,43 @@ class ControllerAction {
       include:{model: Article}})
     .then(data=>{
       res.status(200).json(data)
+    })
+    .catch(error => next(error))
+  }
+
+  static clapArticle(req,res,next){
+    const id = req.params.id
+    Clap.findOne({
+      where: {
+        [Op.and]: [
+          { UserId: req.user.userId },
+          { ArticleId: id}
+        ]
+      }
+    })
+    .then(data=>{
+      if(data){
+         return data
+      } else{
+        return Clap.create({
+          UserId: req.user.userId,
+          ArticleId: id
+        })
+      }
+    })
+    .then(()=>{
+      return Article.findByPk(id)
+    })
+    .then(theData=>{
+      theData.clap ++
+      return Article.update({
+        clap: theData.clap
+      },{where:{id:id}})
+    })
+    .then(()=>{
+      res.status(200).json({
+        message: 'You have clapped the article'
+      })
     })
     .catch(error => next(error))
   }

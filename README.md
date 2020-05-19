@@ -133,6 +133,7 @@
 ```
 
 - Response (200):
+```
 [
   {
     "id": 1,
@@ -159,6 +160,7 @@
     "updatedAt": "2020-05-19T12:24:09.255Z"
   }
 ]
+```
 
 ##### PUT /me/articles/:id
 ###### edit articles that user write
@@ -263,8 +265,13 @@
 ]
 ```
 
-##### GET /artilces/me/clapped
+##### GET /articles/me/clap
 ###### get articles that user has been clapped
+```
+{
+    "message": "You have clapped the article"
+}
+```
 
 ##### GET /user/:id
 ###### get user by id
