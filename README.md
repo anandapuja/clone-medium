@@ -191,6 +191,13 @@
 
 ##### DELETE /me/articles/:id
 ###### delete articles that user write
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 {
@@ -200,6 +207,13 @@
 
 ##### PUT /articles/:id/bookmark
 ###### bookmark article
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 {
@@ -209,6 +223,13 @@
 
 ##### delete /articles/:id/unbookmark
 ###### bookmark article
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 {
@@ -218,6 +239,13 @@
 
 ##### PUT /articles/:id/clapped
 ###### give clap to article
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 {
@@ -227,6 +255,13 @@
 
 ##### GET /articles/me/bookmarked
 ###### get articles that user has been bookmarked
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 [
@@ -273,6 +308,13 @@
 
 ##### GET /articles/me/clap
 ###### get articles that user has been clapped
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 [
@@ -319,6 +361,13 @@
 
 ##### GET /writer/:id
 ###### get writer by id
+- Request Headers:
+```
+{
+  access_token: <access_token>
+}
+```
+
 - Response (200):
 ```
 {
@@ -369,7 +418,7 @@
 }
 ```
 
-##### POST /user/:id/message
+##### POST /writer/:id/message
 ###### post message tu user
 
 ##### GET /messages
