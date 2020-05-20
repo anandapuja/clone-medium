@@ -3,7 +3,8 @@ const { Op } = require('sequelize')
 
 class ControllerAction {
   static getArticles(req, res, next) {
-    Article.findAll({include: {model: User}})
+    const attributes= ['user_name','email']
+    Article.findAll({include: {model: User, attributes:attributes}})
       .then(data => {
         res.status(200).json(data)
       })
@@ -11,8 +12,11 @@ class ControllerAction {
   }
 
   static getArticle(req, res, next) {
-    const id = req.params.id
-    Article.findByPk(id,{include:{model:User}})
+    const id = req.params.id;
+    const attributes= ['user_name','email']
+    Article.findByPk(id,{
+      include:{model:User, attributes:attributes}
+    })
       .then(data => {
         res.status(200).json(data)
       })
@@ -133,7 +137,7 @@ class ControllerAction {
   static getBookmarked(req, res, next) {
     Bookmark.findAll({
       where: { UserId: req.user.userId },
-      include: { model: Article }
+      include: { model: Article, include:{model:User, attributes:['user_name','email']} }
     })
       .then(data => {
         res.status(200).json(data)
@@ -149,7 +153,7 @@ class ControllerAction {
           { UserId: req.user.userId },
           { ArticleId: id }
         ]
-      }
+      },
     })
       .then(data => {
         if (data) {
@@ -181,7 +185,7 @@ class ControllerAction {
   static getClapped(req, res, next) {
     Clap.findAll({
       where: { UserId: req.user.userId },
-      include: { model: Article }
+      include: { model: Article,include:{model:User, attributes:['user_name','email']} }
     })
       .then(data => {
         res.status(200).json(data)
@@ -217,7 +221,7 @@ class ControllerAction {
   static getMessages(req, res, next) {
     Message.findAll({
       where: { UserId: req.user.userId },
-      include: { model: User }
+      include: { model: User, attributes:['user_name','email'] }
     })
       .then(data => {
         res.status(200).json(data)
@@ -228,7 +232,7 @@ class ControllerAction {
   static getMessage(req, res, next) {
     const id = req.params.idmessage
     Message.findByPk(id,
-      { include:[{model:Response, include:{model:User}}]})
+      { include:[{model:Response, include:{model:User, attributes:['user_name','email']}}]})
       .then(data => {
         if (data) {
           if (data.UserId == req.user.userId) {
