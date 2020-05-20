@@ -86,22 +86,25 @@ class ControllerAction {
 
   static saveArticle(req, res, next) {
     const id = req.params.id
-    Article.findByPk(id)
+    Bookmark.findOne({
+      where: {
+        [Op.and]: [
+          { UserId: req.user.userId },
+          { ArticleId: id }
+        ]
+      }
+    })
       .then(data => {
         if (data) {
-          console.log(data)
-          Bookmark.create({
-            UserId: req.user.userId,
-            ArticleId: data.id
-          })
+          return data
         } else {
-          throw {
-            status: 404,
-            message: 'Article not found'
-          }
+          return Bookmark.create({
+            UserId: req.user.userId,
+            ArticleId: id
+          })
         }
       })
-      .then(data => {
+      .then(() => {
         res.status(200).json({
           message: 'Article has been bookmarked'
         })
