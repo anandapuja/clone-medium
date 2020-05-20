@@ -3,7 +3,7 @@ const { Op } = require('sequelize')
 
 class ControllerAction {
   static getArticles(req, res, next) {
-    Article.findAll()
+    Article.findAll({include: {model: User}})
       .then(data => {
         res.status(200).json(data)
       })
@@ -12,7 +12,7 @@ class ControllerAction {
 
   static getArticle(req, res, next) {
     const id = req.params.id
-    Article.findByPk(id)
+    Article.findByPk(id,{include:{model:User}})
       .then(data => {
         res.status(200).json(data)
       })
