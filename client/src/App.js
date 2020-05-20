@@ -7,14 +7,15 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Home } from './pages'
+import { Home, DetailArticle } from './pages'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" component={ Home } />
+          <Route exact path="/" component={ Home } />
+          <Route path="/articles/:id" children={ <DetailArticle /> } />
         </Switch>
       </Router>
     </div>
