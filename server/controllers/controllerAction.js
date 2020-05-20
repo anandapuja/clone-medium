@@ -195,7 +195,11 @@ class ControllerAction {
 
   static getWriter(req, res, next) {
     const id = req.params.id;
-    User.findByPk(id, { include: { model: Article } })
+    User.findOne({
+      id:id,
+      attributes: ['id','user_name','email'],
+      include: { model: Article } 
+    })
       .then(data => {
         res.status(200).json(data)
       })

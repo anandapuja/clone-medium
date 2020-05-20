@@ -447,50 +447,59 @@
 
 ```
 {
-  "id": 20,
-  "email": "asdf@mail.com",
-  "user_name": "asdf",
-  "password": "$2a$10$0z96o3gFUtvPUeSrpQzHM./W2sSM9axFBKzmpRJeHVPk/FNrv3Ry2",
-  "createdAt": "2020-05-19T12:12:06.658Z",
-  "updatedAt": "2020-05-19T12:12:06.658Z",
-  "Articles": [
-      {
-          "id": 5,
-          "title": "judul",
-          "img_url": "google",
-          "body": "body",
-          "clap": 0,
-          "date": "2020-05-19T12:36:45.418Z",
-          "category": null,
-          "UserId": 20,
-          "createdAt": "2020-05-19T12:36:45.420Z",
-          "updatedAt": "2020-05-19T12:36:45.420Z"
-      },
-      {
-          "id": 7,
-          "title": "judul",
-          "img_url": "google",
-          "body": "body",
-          "clap": 0,
-          "date": "2020-05-19T12:54:19.833Z",
-          "category": null,
-          "UserId": 20,
-          "createdAt": "2020-05-19T12:54:19.835Z",
-          "updatedAt": "2020-05-19T12:54:19.835Z"
-      },
-      {
-          "id": 1,
-          "title": "trial 1",
-          "img_url": "google.com",
-          "body": "this is trial 1",
-          "clap": 43,
-          "date": "2020-05-19T12:23:22.761Z",
-          "category": "science",
-          "UserId": 20,
-          "createdAt": "2020-05-19T12:23:22.761Z",
-          "updatedAt": "2020-05-19T15:36:35.583Z"
-      }
-  ]
+    "id": 20,
+    "user_name": "asdf",
+    "email": "asdf@mail.com",
+    "Articles": [
+        {
+            "id": 5,
+            "title": "judul",
+            "img_url": "google",
+            "body": "body",
+            "clap": 0,
+            "date": "2020-05-19T12:36:45.418Z",
+            "category": null,
+            "UserId": 20,
+            "createdAt": "2020-05-19T12:36:45.420Z",
+            "updatedAt": "2020-05-19T12:36:45.420Z"
+        },
+        {
+            "id": 7,
+            "title": "judul",
+            "img_url": "google",
+            "body": "body",
+            "clap": 0,
+            "date": "2020-05-19T12:54:19.833Z",
+            "category": null,
+            "UserId": 20,
+            "createdAt": "2020-05-19T12:54:19.835Z",
+            "updatedAt": "2020-05-19T12:54:19.835Z"
+        },
+        {
+            "id": 1,
+            "title": "trial 1",
+            "img_url": "google.com",
+            "body": "this is trial 1",
+            "clap": 43,
+            "date": "2020-05-19T12:23:22.761Z",
+            "category": "science",
+            "UserId": 20,
+            "createdAt": "2020-05-19T12:23:22.761Z",
+            "updatedAt": "2020-05-19T15:36:35.583Z"
+        },
+        {
+            "id": 8,
+            "title": "judul",
+            "img_url": "google",
+            "body": "body",
+            "clap": 0,
+            "date": "2020-05-20T07:37:33.659Z",
+            "category": "science",
+            "UserId": 20,
+            "createdAt": "2020-05-20T07:37:33.660Z",
+            "updatedAt": "2020-05-20T07:37:33.660Z"
+        }
+    ]
 }
 ```
 
