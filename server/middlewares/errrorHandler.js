@@ -8,7 +8,15 @@ function errorHandler(err, req, res, next) {
   if (err.name) {
     if(err.errors[0].message == 'Validation notEmpty on email failed' || err.errors[0].message == 'Validation notEmpty on user_name failed'){
       res.status(400).json({
-        message: 'Email and user name cannot be emtpy'
+        message: 'Email and username cannot be emtpy'
+      })
+    }else if(err.errors[0].message =='Validation notEmpty on title failed' || err.errors[0].message =='Validation notEmpty on body failed'){
+      res.status(400).json({
+        message: 'Title and body cannot be emtpy'
+      })
+    }else if(err.errors[0].message =='Validation notEmpty on title_message failed' || err.errors[0].message =='Validation notEmpty on body_message failed'){
+      res.status(400).json({
+        message: 'Title and body cannot be emtpy'
       })
     }
   } else if (err.message) {
