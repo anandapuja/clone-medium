@@ -167,32 +167,39 @@
 - Response (200):
 
 ```
-[
-  {
-    "id": 1,
-    "title": "trial 1",
-    "img_url": "google.com",
-    "body": "this is trial 1",
-    "clap": 40,
-    "date": "2020-05-19T12:23:22.761Z",
-    "category": "science",
-    "UserId": 20,
-    "createdAt": "2020-05-19T12:23:22.761Z",
-    "updatedAt": "2020-05-19T12:23:22.761Z"
-  },
-  {
-    "id": 2,
-    "title": "trial 2",
-    "img_url": "google.com",
-    "body": "this is trial 2",
-    "clap": 23,
-    "date": "2020-05-19T12:24:09.255Z",
-    "category": "science",
-    "UserId": 20,
-    "createdAt": "2020-05-19T12:24:09.255Z",
-    "updatedAt": "2020-05-19T12:24:09.255Z"
-  }
-]
+{
+  "id": 20,
+  "email": "asdf@mail.com",
+  "user_name": "asdf",
+  "avatar": null,
+  "about_me": null,
+  "Articles": [
+    {
+        "id": 5,
+        "title": "judul",
+        "img_url": "google",
+        "body": "body",
+        "clap": 0,
+        "date": "2020-05-19T12:36:45.418Z",
+        "category": null,
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:36:45.420Z",
+        "updatedAt": "2020-05-19T12:36:45.420Z"
+    },
+    {
+        "id": 7,
+        "title": "judul",
+        "img_url": "google",
+        "body": "body",
+        "clap": 0,
+        "date": "2020-05-19T12:54:19.833Z",
+        "category": null,
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:54:19.835Z",
+        "updatedAt": "2020-05-19T12:54:19.835Z"
+    }
+  ]
+}
 ```
 
 ##### PUT /me/articles/:id
