@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "fuzail",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "medium",
     "host": "127.0.0.1",
     "dialect": "postgres"
