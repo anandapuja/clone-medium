@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle } from './pages';
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer } from './pages';
 import { Header } from './components'
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
           <Route exact path="/articles" component={ Articles } />
           <Route path="/articles/:id" children={ <DetailArticle /> } />
           <Route path="/me/articles" children={ <MeArticles /> } />
+          <Route path="/writer/:id" children={ <Writer /> } />
           <Route path="/add-article" component={ AddArticle } />
         </Switch>
       </Router>

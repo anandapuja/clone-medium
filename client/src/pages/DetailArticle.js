@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom';
 
 export default function DetailArticle(){
   const [article, setArticle] = useState({});
@@ -43,8 +43,7 @@ export default function DetailArticle(){
           </div>
           <div className="detail-writer-description">
             <p>WRITTEN BY</p>
-            <h3>anandapujawandra</h3>
-            {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> */}
+            <Link to={`/writer/${article.UserId}`}><h3>anandapujawandra</h3></Link>
           </div>
         </div>
       </div>
