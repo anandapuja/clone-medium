@@ -42,11 +42,15 @@ class ControllerAction {
   }
 
   static getMyArticles(req, res, next) {
-    Article.findAll({ where: { UserId: req.user.userId } })
-      .then(data => {
-        res.status(200).json(data)
-      })
-      .catch(error => next(error))
+    User.findOne({
+      where:{id:req.user.userId}, 
+      attributes:['id','email','user_name','avatar','about_me'],
+      include:{model:Article}
+    })
+    .then(data=>{
+      res.status(200).json(data)
+    })
+    .catch(error => next(error))
   }
 
   static editArticle(req, res, next) {
