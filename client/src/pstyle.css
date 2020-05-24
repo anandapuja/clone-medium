@@ -186,8 +186,7 @@ img{
 }
 .me-article-list-header{
   display: flex;
-  align-items: center;
-  justify-content: start;
+  align-items: flex-end;
   padding: 20px 0;
 }
 .me-article-list-header-image{
@@ -278,4 +277,10 @@ img{
   border: 1px solid rgb(0, 122, 20);
   padding: 10px;
   color: rgb(0, 122, 20);
+  cursor: pointer;
+}
+.delete-icon img {
+  height: 25px;
+  width: auto;
+  margin-left: 30px;
 }

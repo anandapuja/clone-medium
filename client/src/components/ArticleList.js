@@ -9,7 +9,7 @@ export default function ArticleList({ data }){
           <Link to={`/articles/${data.id}`}><h1>{ data.title }</h1></Link>
           <p className="article-list-p">{ data.body }</p>
           <p className="article-list-category">{ data.category }</p>
-          <p className="article-list-user-name">{ data.User.user_name }</p>
+          <Link to={`/writer/${data.UserId}`}><p className="article-list-user-name">{ data.User.user_name }</p></Link>
           <p className="article-list-date">{ data.createdAt}</p>
         </div>
         <div className="article-list-image">
