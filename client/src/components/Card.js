@@ -45,7 +45,6 @@ export default function Card(props){//props bisa mndpt data dari parent yaitu Ap
                 </div>
             </div>
         </div>
-
     )
 }
 
