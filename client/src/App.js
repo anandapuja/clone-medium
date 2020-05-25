@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home } from './pages';
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap } from './pages';
 import { Header, HeaderNoLogin } from './components'
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <Route path="/me/articles" children={ <MeArticles /> } />
           <Route path="/writer/:id" children={ <Writer /> } />
           <Route path="/add-article" component={ AddArticle } />
+          <Route path="/clapped" component={ Clap } />
         </Switch>
       </Router>
     </div>

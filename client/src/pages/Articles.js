@@ -7,7 +7,7 @@ export default function Home(){
     fetch('http://localhost:3001/articles', {
       headers: {
         'Content-Type': 'application/json',
-        access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s"
+        access_token: localStorage.getItem('access_token')
       }
     })
       .then(res => res.json())
