@@ -227,12 +227,20 @@ class ControllerAction {
   }
 
   static getMessages(req, res, next) {
+    const allMessage ={}
     Message.findAll({
       where: { UserId: req.user.userId },
       include: { model: User, attributes:['user_name','email'] }
     })
       .then(data => {
-        res.status(200).json(data)
+        allMessage.receive = data
+        return Message.findAll({
+          where: {SenderId: req.user.userId}
+        })
+      })
+      .then(theData=>{
+        allMessage.send = theData
+        res.status(200).json(allMessage)
       })
       .catch(error => next(error))
   }

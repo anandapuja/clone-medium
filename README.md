@@ -545,64 +545,67 @@
 - Response (200):
 
 ```
-[
-    {
-        "id": 3,
-        "title_message": "this is title",
-        "body_message": "this is my message",
-        "date": "2020-05-19T21:11:31.518Z",
-        "UserId": 21,
-        "SenderId": 20,
-        "createdAt": "2020-05-19T21:11:31.520Z",
-        "updatedAt": "2020-05-19T21:11:31.520Z",
-        "User": {
-            "user_name": "fuza",
-            "email": "fuza@mail.com"
+{
+    "receive": [
+        {
+            "id": 3,
+            "title_message": "this is title",
+            "body_message": "this is my message",
+            "date": "2020-05-19T21:11:31.518Z",
+            "UserId": 21,
+            "SenderId": 20,
+            "createdAt": "2020-05-19T21:11:31.520Z",
+            "updatedAt": "2020-05-19T21:11:31.520Z",
+            "User": {
+                "user_name": "asdf",
+                "email": "asdf@mail.com"
+            }
+        },
+        {
+            "id": 4,
+            "title_message": "this is title",
+            "body_message": "this is my message",
+            "date": "2020-05-19T21:11:38.632Z",
+            "UserId": 21,
+            "SenderId": 20,
+            "createdAt": "2020-05-19T21:11:38.632Z",
+            "updatedAt": "2020-05-19T21:11:38.632Z",
+            "User": {
+                "user_name": "asdf",
+                "email": "asdf@mail.com"
+            }
+        },
+        {
+            "id": 5,
+            "title_message": "this is title",
+            "body_message": "this is my message",
+            "date": "2020-05-19T21:12:41.818Z",
+            "UserId": 21,
+            "SenderId": 20,
+            "createdAt": "2020-05-19T21:12:41.818Z",
+            "updatedAt": "2020-05-19T21:12:41.818Z",
+            "User": {
+                "user_name": "asdf",
+                "email": "asdf@mail.com"
+            }
+        },
+        {
+            "id": 6,
+            "title_message": "this is title",
+            "body_message": "this is my message",
+            "date": "2020-05-20T07:41:00.517Z",
+            "UserId": 21,
+            "SenderId": 20,
+            "createdAt": "2020-05-20T07:41:00.518Z",
+            "updatedAt": "2020-05-20T07:41:00.518Z",
+            "User": {
+                "user_name": "asdf",
+                "email": "asdf@mail.com"
+            }
         }
-    },
-    {
-        "id": 4,
-        "title_message": "this is title",
-        "body_message": "this is my message",
-        "date": "2020-05-19T21:11:38.632Z",
-        "UserId": 21,
-        "SenderId": 20,
-        "createdAt": "2020-05-19T21:11:38.632Z",
-        "updatedAt": "2020-05-19T21:11:38.632Z",
-        "User": {
-            "user_name": "fuza",
-            "email": "fuza@mail.com"
-        }
-    },
-    {
-        "id": 5,
-        "title_message": "this is title",
-        "body_message": "this is my message",
-        "date": "2020-05-19T21:12:41.818Z",
-        "UserId": 21,
-        "SenderId": 20,
-        "createdAt": "2020-05-19T21:12:41.818Z",
-        "updatedAt": "2020-05-19T21:12:41.818Z",
-        "User": {
-            "user_name": "fuza",
-            "email": "fuza@mail.com"
-        }
-    },
-    {
-        "id": 6,
-        "title_message": "this is title",
-        "body_message": "this is my message",
-        "date": "2020-05-20T07:41:00.517Z",
-        "UserId": 21,
-        "SenderId": 20,
-        "createdAt": "2020-05-20T07:41:00.518Z",
-        "updatedAt": "2020-05-20T07:41:00.518Z",
-        "User": {
-            "user_name": "fuza",
-            "email": "fuza@mail.com"
-        }
-    }
-]
+    ],
+    "send": []
+}
 ```
 
 ##### GET /messages/:id
