@@ -8,6 +8,9 @@ router.get('/articles', authentication,controllerAction.getArticles);
 router.get('/articles/:id', authentication,controllerAction.getArticle);
 router.post('/articles',authentication,controllerAction.addArticle);
 
+// top article
+router.get('/popular', authentication,controllerAction.getTopArticles);
+
 router.get('/me/articles',authentication,controllerAction.getMyArticles);
 router.put('/me/articles/:id',authentication,authorization,controllerAction.editArticle);
 router.delete('/me/articles/:id', authentication,authorization,controllerAction.deleteArticle);
@@ -29,5 +32,8 @@ router.post('/writer/:writerid/message', authentication,controllerAction.addMess
 router.get('/messages', authentication,controllerAction.getMessages)
 router.get('/messages/:idmessage',authentication,controllerAction.getMessage)
 router.post('/messages/:idmessage/response', authentication,controllerAction.addResponse)
+
+
+
 
 module.exports = router

@@ -283,6 +283,21 @@ class ControllerAction {
     })
     .catch(error => next(error))
   }
+
+  static getTopArticles(req,res,next){
+    // console.log(`-------here`)
+    Article.findAll({
+      order:[['clap','DESC']],
+      limit: 10,
+      include: {model: User, attributes:['user_name','email']}
+    })
+    .then(data=>{
+      res.status(200).json(data)
+    })
+    .catch(error=>{
+      next(error)
+    })
+  }
 }
 
 module.exports = ControllerAction

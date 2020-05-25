@@ -685,3 +685,103 @@
     "createdAt": "2020-05-19T21:54:06.004Z"
 }
 ```
+
+##### GET /popular
+- Response (200):
+```
+[
+    {
+        "id": 1,
+        "title": "trial 1",
+        "img_url": "google.com",
+        "body": "this is trial 1",
+        "clap": 43,
+        "date": "2020-05-19T12:23:22.761Z",
+        "category": "science",
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:23:22.761Z",
+        "updatedAt": "2020-05-19T15:36:35.583Z",
+        "User": {
+            "user_name": "asdf",
+            "email": "asdf@mail.com"
+        }
+    },
+    {
+        "id": 9,
+        "title": "asdf",
+        "img_url": "asdf",
+        "body": "asdfeasdfe",
+        "clap": 8,
+        "date": "2020-05-25T12:18:05.305Z",
+        "category": "asdfe",
+        "UserId": 25,
+        "createdAt": "2020-05-25T12:18:05.305Z",
+        "updatedAt": "2020-05-25T12:21:46.978Z",
+        "User": {
+            "user_name": "ail",
+            "email": "ail@mail.com"
+        }
+    },
+    {
+        "id": 6,
+        "title": "judl",
+        "img_url": "google",
+        "body": "body",
+        "clap": 6,
+        "date": "2020-05-19T12:43:36.169Z",
+        "category": "science",
+        "UserId": 45,
+        "createdAt": "2020-05-19T12:43:36.169Z",
+        "updatedAt": "2020-05-19T17:42:00.957Z",
+        "User": null
+    },
+    {
+        "id": 5,
+        "title": "judul",
+        "img_url": "google",
+        "body": "body",
+        "clap": 3,
+        "date": "2020-05-19T12:36:45.418Z",
+        "category": null,
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:36:45.420Z",
+        "updatedAt": "2020-05-25T12:20:21.559Z",
+        "User": {
+            "user_name": "asdf",
+            "email": "asdf@mail.com"
+        }
+    },
+    {
+        "id": 7,
+        "title": "judul",
+        "img_url": "google",
+        "body": "body",
+        "clap": 1,
+        "date": "2020-05-19T12:54:19.833Z",
+        "category": null,
+        "UserId": 20,
+        "createdAt": "2020-05-19T12:54:19.835Z",
+        "updatedAt": "2020-05-25T12:22:10.091Z",
+        "User": {
+            "user_name": "asdf",
+            "email": "asdf@mail.com"
+        }
+    },
+    {
+        "id": 8,
+        "title": "judul",
+        "img_url": "google",
+        "body": "body",
+        "clap": 0,
+        "date": "2020-05-20T07:37:33.659Z",
+        "category": "science",
+        "UserId": 20,
+        "createdAt": "2020-05-20T07:37:33.660Z",
+        "updatedAt": "2020-05-20T07:37:33.660Z",
+        "User": {
+            "user_name": "asdf",
+            "email": "asdf@mail.com"
+        }
+    }
+]
+```
