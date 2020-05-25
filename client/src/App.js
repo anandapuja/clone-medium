@@ -5,8 +5,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage } from './pages';
-import { Header, HeaderNoLogin } from './components'
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark } from './pages';
+import { Header, HeaderNoLogin, Footer, FooterNoLogin } from './components'
 
 function App() {
   return (
@@ -18,15 +18,18 @@ function App() {
         <Switch>
           { localStorage.getItem('access_token') ? <Route exact path="/" component={ Articles } /> : <Route exact path="/" component={ Home } /> }
           <Route exact path="/articles" component={ Articles } />
-          <Route path="/articles/:id" children={ <DetailArticle /> } />
+          <Route exact path="/articles/:id" children={ <DetailArticle /> } />
           <Route path="/me/articles" children={ <MeArticles /> } />
           <Route exact path="/writer/:id" children={ <Writer /> } />
           <Route path="/writer/:id/send-message" component={ PostMessage } />
           <Route path="/add-article" component={ AddArticle } />
           <Route path="/edit-article/:id" component={ PutArticle } />
           <Route path="/clapped" component={ Clap } />
-          <Route path="/Bookmark"> <Bookmark/> </Route>
+          <Route path="/bookmark"> <Bookmark/> </Route>
         </Switch>
+        {
+          localStorage.getItem('access_token') ? <Footer /> : <FooterNoLogin />
+        }
       </Router>
     </div>
   );

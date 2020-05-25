@@ -319,6 +319,10 @@ img{
   border-radius: 5px;
   color: white;
   font-size: 1em;
+  transition: 0.3s;
+}
+.right-header-container button:hover{
+  background-color: rgb(0, 94, 69);
 }
 .right-header-container p{
   padding: 0 15px;
@@ -355,6 +359,11 @@ img{
 .home-title h1{
   text-align: center;
 }
+.home-started{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .home-started p {
   text-align: center;
   font-weight: bold;
@@ -368,6 +377,10 @@ img{
   border-radius: 5px;
   color: white;
   font-size: 1.2em;
+  transition: 0.3s;
+}
+.home-started button:hover{
+  background: rgb(0, 94, 69);
 }
 .home-adventages{
   display: grid;
@@ -426,6 +439,10 @@ img{
   border-radius: 5px;
   color: white;
   font-size: 1.2em;
+  transition: 0.3s;
+}
+.home-ads-section-started-left button:hover{
+  background: rgb(0, 94, 69);
 }
 
 /* Home Subscription */
@@ -448,19 +465,27 @@ img{
   padding: 40px 0;
   width: 600px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .home-footer-offer h1{
   text-align: center;
   font-size: 55px;
 }
 .home-footer-offer button{
-  margin-top: 20px;
+  margin: 20px auto;
   padding: 20px 100px;
   background: #019E74;
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 1.2em;
+  text-align: center;
+  transition: 0.3s;
+}
+.home-footer-offer button:hover{
+  background: rgb(0, 94, 69);
 }
 
 /* Clap */
@@ -487,4 +512,130 @@ img{
 .clap-meta p{
   margin-right: 10px;
   font-size: 0.8em;
+}
+
+/* Bookmark */
+.card{
+  border: 1px solid #eee;
+  box-shadow: 0px, 2px,2px #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+.titleBookmark{
+  font-size: 20px;
+  margin-top: 10px;
+}
+.options{
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 3px;
+  background-color: #019e74;
+  color: white;
+  transition: 0.3s;
+}
+.options:hover{
+  background-color: #027959;
+}
+.content{
+  font-size: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.deleteButton{
+  border: none;
+  background: none;
+  font-size: 15px;
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+}
+.bookmark-container{
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.card-body h2{
+  font-size: 1.4em;
+  padding: 5px 0;
+}
+.card-body p{
+  font-size: 0.8em;
+}
+
+/* Footer */
+.footer-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+  background: black;
+}
+.footer-left{
+  width: 90%;
+}
+.footer-right{
+  width: 20%;
+}
+.footer-container p{
+  color: rgb(199, 199, 199);
+  padding: 10px 0;
+  margin-right: 20px;
+}
+.footer-left img{
+  width: 40px;
+  height: auto;
+}
+.footer-nav{
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  /* padding: 10px 0; */
+}
+.footer-container-login{
+  display: flex;
+  flex-direction: column;
+  padding: 50px 100px;
+  background-color: #191919;
+}
+.footer-right img{
+  width: 150px;
+  height: auto;
+}
+.footer-top{
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #fff;
+}
+.footer-top-item{
+  padding: 0 20px;
+}
+.footer-top h4{
+  color: white;
+  padding: 10px 0;
+  font-size: 1.2em;
+}
+.footer-top p{
+  color: rgb(180, 179, 179);
+  padding: 10px 0;
+}
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+.footer-bottom img{
+  width: 150px;
+  height: auto;
+}
+.footer-bottom nav{
+  display: flex;
+  color: white;
+}
+.footer-bottom nav p{
+  color: rgb(180, 179, 179);
+  margin-left: 10px;
 }
