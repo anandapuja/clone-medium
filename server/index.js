@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const router = require('./routes')
 const cors = require('cors')
@@ -10,6 +10,4 @@ app.use(cors())
 
 app.use(router)
 
-app.listen(PORT,()=>{
-  console.log(`Listening to port ${PORT}`)
-})
+module.exports = app
