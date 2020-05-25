@@ -1,23 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-import { Home, DetailArticle, MeArticles, AddArticle } from './pages'
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage } from './pages';
+import { Header, HeaderNoLogin } from './components'
 
 function App() {
   return (
     <div className="App">
       <Router>
+        {
+          localStorage.getItem('access_token') ? <Header /> : <HeaderNoLogin />
+        }
         <Switch>
-          <Route exact path="/" component={ Home } />
+          { localStorage.getItem('access_token') ? <Route exact path="/" component={ Articles } /> : <Route exact path="/" component={ Home } /> }
+          <Route exact path="/articles" component={ Articles } />
           <Route path="/articles/:id" children={ <DetailArticle /> } />
           <Route path="/me/articles" children={ <MeArticles /> } />
+          <Route exact path="/writer/:id" children={ <Writer /> } />
+          <Route path="/writer/:id/send-message" component={ PostMessage } />
           <Route path="/add-article" component={ AddArticle } />
+          <Route path="/edit-article/:id" component={ PutArticle } />
+          <Route path="/clapped" component={ Clap } />
         </Switch>
       </Router>
     </div>

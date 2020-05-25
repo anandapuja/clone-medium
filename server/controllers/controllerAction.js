@@ -31,7 +31,7 @@ class ControllerAction {
       body: inputData.body,
       category: inputData.category,
       date: Date.now(),
-      UserId: inputData.UserId,
+      UserId: req.user.userId,
       clap: 0,
 
     })

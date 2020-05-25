@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function AddArticle(){
   const [title, setTitle] = useState('')
@@ -23,7 +23,24 @@ export default function AddArticle(){
     const reqBody = {
       title, img_url, body, category
     }
-    console.log(reqBody);
+    fetch('http://localhost:3001/articles', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+        'access_token': localStorage.getItem('access_token')
+      },
+      body: JSON.stringify(reqBody),
+    })
+    .then(response => response.json())
+    .then(data => {
+      setTitle('');
+      setImg_Url('');
+      setBody('');
+      setCategory('');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
 
   return(
