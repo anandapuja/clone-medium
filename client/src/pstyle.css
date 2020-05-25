@@ -355,6 +355,11 @@ img{
 .home-title h1{
   text-align: center;
 }
+.home-started{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .home-started p {
   text-align: center;
   font-weight: bold;
@@ -448,19 +453,23 @@ img{
   padding: 40px 0;
   width: 600px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .home-footer-offer h1{
   text-align: center;
   font-size: 55px;
 }
 .home-footer-offer button{
-  margin-top: 20px;
+  margin: 20px auto;
   padding: 20px 100px;
   background: #019E74;
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 1.2em;
+  text-align: center;
 }
 
 /* Clap */
@@ -488,3 +497,57 @@ img{
   margin-right: 10px;
   font-size: 0.8em;
 }
+
+/* Bookmark */
+.card{
+  border: 1px solid #eee;
+  box-shadow: 0px, 2px,2px #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+.titleBookmark{
+  font-size: 20px;
+  margin-top: 10px;
+}
+.options{
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 3px;
+  background-color: #019e74;
+  color: white;
+  transition: 0.3s;
+}
+.options:hover{
+  background-color: #027959;
+}
+.content{
+  font-size: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.deleteButton{
+  border: none;
+  background: none;
+  font-size: 15px;
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+}
+.bookmark-container{
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.card-body h2{
+  font-size: 1.4em;
+  padding: 5px 0;
+}
+.card-body p{
+  font-size: 0.8em;
+}
+
+/* Footer */
