@@ -4,7 +4,10 @@ const { Op } = require('sequelize')
 class ControllerAction {
   static getArticles(req, res, next) {
     const attributes= ['user_name','email']
-    Article.findAll({include: {model: User, attributes:attributes}})
+    Article.findAll({
+      order:[['date', 'DESC']],
+      include: {model: User, attributes:attributes
+      }})
       .then(data => {
         res.status(200).json(data)
       })
