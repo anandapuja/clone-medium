@@ -11,6 +11,9 @@ a{
 a:hover{
   color: #111;
 }
+textarea{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
+}
 body{
   font-size: 17px;
 }
@@ -181,8 +184,30 @@ img{
   font-size: 1em;
   color: #444;
 }
+.me-writer-description img{
+  width: 30px;
+  height: auto;
+}
+.me-writer-description-name-message{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 .me-writer-image{
   width: 20%;
+}
+.me-writer-message{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: 0.1s;
+  margin-left: 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+}
+.me-writer-message:hover{
+  border: 1px solid #aaa;
+  background-color: #eee;
 }
 .me-writer-image img{
   border-radius: 50%;

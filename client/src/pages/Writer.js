@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { WriterList } from '../components';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function Writer(){
   const { id } = useParams();
@@ -24,7 +24,15 @@ export default function Writer(){
       <div className="me-article-container">
         <div className="me-writer-header">
           <div className="me-writer-description">
-            <h3>Ananda Puja Wandra</h3>
+            <div className="me-writer-description-name-message">
+              <h3>Ananda Puja Wandra</h3>
+              <Link to={`/writer/${id}/send-message`}>
+                <div className="me-writer-message">
+                  <img src="/images/message.png" alt="message" />
+                  <p>Send Message</p>
+                </div>
+              </Link>
+            </div>
             <p>JVG is a writer/director in New York. Learn more and connect at</p>
           </div>
           <div className="me-writer-image">

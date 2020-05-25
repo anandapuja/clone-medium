@@ -1,5 +1,4 @@
 function errorHandler(err, req, res, next) {
-  console.log(err)
   if (err.name == 'SequelizeConnectionError' || err.name== 'SequelizeDatabaseError') {
     res.status(500).json({
       message: 'Internal server error'
@@ -20,7 +19,6 @@ function errorHandler(err, req, res, next) {
       })
     }
   } else if (err.message) {
-    console.log('masuik')
     res.status(err.status).json({
       message: err.message
     })

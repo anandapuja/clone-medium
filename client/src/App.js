@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap } from './pages';
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage } from './pages';
 import { Header, HeaderNoLogin } from './components'
 
 function App() {
@@ -20,8 +20,10 @@ function App() {
           <Route exact path="/articles" component={ Articles } />
           <Route path="/articles/:id" children={ <DetailArticle /> } />
           <Route path="/me/articles" children={ <MeArticles /> } />
-          <Route path="/writer/:id" children={ <Writer /> } />
+          <Route exact path="/writer/:id" children={ <Writer /> } />
+          <Route path="/writer/:id/send-message" component={ PostMessage } />
           <Route path="/add-article" component={ AddArticle } />
+          <Route path="/edit-article/:id" component={ PutArticle } />
           <Route path="/clapped" component={ Clap } />
         </Switch>
       </Router>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default function MeArticleList({ article, user }){
+export default function MeArticleList({ article, user, deleted }){
   const deleteRequest = (articleId) => {
     fetch(`http://localhost:3001/me/articles/${articleId}`,{
       method: 'DELETE',
@@ -11,6 +11,7 @@ export default function MeArticleList({ article, user }){
     })
       .then(res => res.json())
       .then(data => {
+        deleted();
         console.log(data);
       })
   }

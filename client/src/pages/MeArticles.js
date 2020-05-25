@@ -3,6 +3,7 @@ import { MeArticleList } from '../components'
 
 export default function MeArticles(){
   const [articles, setArticles] = useState([]);
+  const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3001/me/articles', {
@@ -15,7 +16,11 @@ export default function MeArticles(){
         setArticles(data);
       })
       .catch(console.log)
-  }, []);
+  }, [deleted]);
+
+  const deletedArticle = () => {
+    setDeleted(!deleted);
+  }
 
   return(
     <>
@@ -33,7 +38,7 @@ export default function MeArticles(){
           {
             articles.Articles !== undefined ? (
               articles.Articles.map(article => (
-                <MeArticleList key={article.id} article={article} user={articles} />
+                <MeArticleList deleted={deletedArticle} key={article.id} article={article} user={articles} />
               ))
             ) : (
               <p>Loading ...</p>
