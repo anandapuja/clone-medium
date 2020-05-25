@@ -7,3 +7,4 @@ export { default as Writer } from './Writer';
 export { default as Home } from './Home';
 export { default as Clap } from './Clap';
 export { default as PostMessage } from './PostMessage';
+export {default as Bookmark} from "./Bookmark"

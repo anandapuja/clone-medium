@@ -25,6 +25,7 @@ function App() {
           <Route path="/add-article" component={ AddArticle } />
           <Route path="/edit-article/:id" component={ PutArticle } />
           <Route path="/clapped" component={ Clap } />
+          <Route path="/Bookmark"> <Bookmark/> </Route>
         </Switch>
       </Router>
     </div>
