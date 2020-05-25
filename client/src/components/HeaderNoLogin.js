@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function HeaderNoLogin(){
   return(
@@ -10,8 +10,8 @@ export default function HeaderNoLogin(){
       <div className="right-header-container">
         <p>Subscribe</p>
         <p>Write</p>
-        <p>Sign In</p>
-        <button>Get Started</button>
+        <Link to="/login"><p>Sign In</p></Link>
+        <Link to="/register"><button>Get Started</button></Link>
       </div>
     </div>
   )

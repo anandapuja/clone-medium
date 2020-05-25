@@ -11,7 +11,7 @@ const Home = () => {
 
       <div className="home-started">
         <p>Select what you're into. We'll help you find great things to read.</p>
-        <button type="button">Get Started</button>
+        <Link to="/register"><button type="button">Get Started</button></Link>
         <p>Already have an account? <Link to="/login">Sign in.</Link></p>
       </div>
 
@@ -40,7 +40,7 @@ const Home = () => {
         </div>
         <div className="home-ads-section-started">
           <div className="home-ads-section-started-left">
-            <button>Get Started</button>
+            <Link to="/register"><button>Get Started</button></Link>
           </div>
           <div className="home-ads-section-started-right">
             <h4>We do things differently.</h4>
@@ -56,7 +56,7 @@ const Home = () => {
 
       <div className="home-footer-offer">
         <h1>Expand your reading. Expand your mind.</h1>
-        <button type="button">Get Started</button>
+        <Link to="/register"><button type="button">Get Started</button></Link>
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark } from './pages';
-import { Header, HeaderNoLogin } from './components'
+import { Header, HeaderNoLogin, Footer, FooterNoLogin } from './components'
 
 function App() {
   return (
@@ -27,6 +27,9 @@ function App() {
           <Route path="/clapped" component={ Clap } />
           <Route path="/bookmark"> <Bookmark/> </Route>
         </Switch>
+        {
+          localStorage.getItem('access_token') ? <Footer /> : <FooterNoLogin />
+        }
       </Router>
     </div>
   );
