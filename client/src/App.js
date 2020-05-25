@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark } from './pages';
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark,Login,Register } from './pages';
 import { Header, HeaderNoLogin, Footer, FooterNoLogin } from './components'
 
 function App() {
@@ -26,6 +26,8 @@ function App() {
           <Route path="/edit-article/:id" component={ PutArticle } />
           <Route path="/clapped" component={ Clap } />
           <Route path="/bookmark"> <Bookmark/> </Route>
+          <Route path="/login"> <Login/> </Route>
+          <Route path="/register"> <Register/> </Route>
         </Switch>
         {
           localStorage.getItem('access_token') ? <Footer /> : <FooterNoLogin />
