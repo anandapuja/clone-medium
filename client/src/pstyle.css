@@ -715,5 +715,13 @@ img{
 }
 .response-message-detail{
   margin-top: 30px;
+}
+.response-message-detail h4{
   text-decoration: underline;
+  margin-bottom: 20px;
+}
+.response-message-detail p{
+  padding: 10px;
+  background: rgb(236, 235, 235);
+  margin-bottom: 5px;
 }

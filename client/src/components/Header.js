@@ -32,8 +32,9 @@ export default function Header(){
       </div></Link>
       <div className="right-header-container">
         <Link to="/clapped"><img src="/images/clap-a.jpg" alt="clap" /></Link>
-        <Link to="/bookmark"><img src="/images/bookmark.jpg" alt="clap" /></Link>
+        <Link to="/bookmark"><img src="/images/bookmark-a.png" alt="clap" /></Link>
         <Link to="/me/articles"><img src="/images/me.png" alt="me" /></Link>
+        <Link to="/message"><img src="/images/message.png" alt="message" /></Link>
         <div className="create-story">
           <Link to="/add-article"><button type="button">Write a Story</button></Link>
         </div>

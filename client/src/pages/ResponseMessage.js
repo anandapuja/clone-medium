@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ResponseMessage = () => {
   const { id } = useParams();
   const [message, setMessage] = useState({});
   const [response, setResponse] = useState('');
+  const [status, setStatus] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3001/messages/${id}`,{
@@ -15,9 +17,8 @@ const ResponseMessage = () => {
       .then(res => res.json())
       .then(data => {
         setMessage(data);
-        console.log(data);
       })
-  }, [])
+  }, [status])
 
   const responseHandler = (e) => {
     setResponse(e.target.value);
@@ -25,20 +26,21 @@ const ResponseMessage = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3001/messages/${id}/response`, {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-        'access_token': localStorage.getItem('access_token')
+    axios({
+      method: 'POST',
+      url: `http://localhost:3001/messages/${id}/response`,
+      headers:{
+        access_token: localStorage.getItem('access_token')
       },
-      body: response,
+      data: {
+        response: response
+      }
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
+      .then(({data}) => {
+        setStatus(!status)
       })
   }
-
+  
   return(
     <div className="addform-container">
       <div className="message-detail-container">
@@ -46,7 +48,7 @@ const ResponseMessage = () => {
         <p>Date: { message.date }</p>
         <p>Body: { message.body_message }</p>
         <div className="response-message-detail">
-          <h4>Reponse</h4>
+          <h4>Your Reponses</h4>
           {
             message.Responses && message.Responses.map(res => (
               <p key={res.id}>{res.response}</p>
@@ -57,7 +59,7 @@ const ResponseMessage = () => {
       <h3>SEND YOUR RESPONSE</h3>
       <form onSubmit={submit}>
         <div className="add-form-div">
-          <textarea onChange={responseHandler} placeholder="Response"></textarea>
+          <textarea onChange={responseHandler} placeholder="Type your response here"></textarea>
         </div>
         <div className="add-form-div">
           <button type="submit">SEND</button>

@@ -95,7 +95,7 @@ export default function DetailArticle(){
                 <div className="clapped">
                   { article.clap === 0 ? <img onClick={clap} src="/images/clap.png" alt="clap" /> : <><img onClick={clap} src="/images/clap-a.jpg" alt="clap" /> <p>{article.clap}</p></> }
                 </div>
-                  { bookmarkStatus.length == 0 ? <img onClick={bookmark} src="/images/bookmark.jpg" alt="clap" /> : <><Link to="/bookmark"><img src="/images/bookmark-a.png" alt="clap" /></Link></> }
+                  { bookmarkStatus.length == 0 ? <img onClick={bookmark} src="/images/bookmark.png" alt="clap" /> : <><Link to="/bookmark"><img src="/images/bookmark-a.png" alt="clap" /></Link></> }
                   {/* <img src="/images/bookmark.jpg" alt="clap" /> */}
 
               </div>

@@ -280,6 +280,7 @@ class ControllerAction {
   static addResponse(req,res,next){
     const inputData = req.body
     const id = req.params.idmessage
+    console.log('REQ BODY', inputData)
     Response.create({
       response: inputData.response,
       date: Date.now(),
