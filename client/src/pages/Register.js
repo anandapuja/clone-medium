@@ -57,6 +57,7 @@ export default ({logStatus})=>{
                 'Let`s create your story!',
                 'success'
               )
+              console.log(data)
             localStorage.setItem("access_token",data.access_token);
             logStatus(true);
             history.push('/add-article');
@@ -64,6 +65,7 @@ export default ({logStatus})=>{
         .catch((error) => {
             console.error('Error:', error);
         });
+        
 
     }
 
