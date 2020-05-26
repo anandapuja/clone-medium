@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+import url from '../url';
 
 const PostMessage = () => {
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const { id } = useParams();
   const [title_message, setTitle_Message] = useState('');
   const [body_message, setBody_Message] = useState('');
@@ -17,7 +23,7 @@ const PostMessage = () => {
     const reqBody = {
       title_message, body_message
     }
-    fetch(`http://localhost:3001/writer/${id}/message`, {
+    fetch(`${url}/writer/${id}/message`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +33,6 @@ const PostMessage = () => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       setTitle_Message('');
       setBody_Message('');
     })

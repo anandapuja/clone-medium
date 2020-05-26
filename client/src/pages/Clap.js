@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { ClapList } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 const Clap = () => {
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+
   const [clapped, setClapped] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/articles/me/clapped`,{
+    fetch(`${url}/articles/me/clapped`,{
       headers:{
-        access_token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s`
+        access_token: localStorage.getItem('access_token')
       }
     })
       .then(res => res.json())

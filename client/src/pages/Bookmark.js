@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card'
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 export default function Bookmark () {
+    const history = useHistory();
+    if(!localStorage.getItem('access_token')){
+        history.push('/');
+    }
 
     const [bookmark,setBookmark] = useState([]);
     const [status, setStatus] = useState(false);
 
     useEffect(()=>{
-        let url = `http://localhost:3001/articles/me/bookmarked`
-        fetch(url, {
+        let urlLink = `${url}/articles/me/bookmarked`
+        fetch(urlLink, {
             headers:{
-                access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s'
+                access_token: localStorage.getItem('access_token')
             }
         })
             .then(resp=>resp.json())

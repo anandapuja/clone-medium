@@ -16,7 +16,7 @@ class ControllerAction {
 
   static getArticle(req, res, next) {
     const id = req.params.id;
-    const attributes= ['user_name','email']
+    const attributes= ['user_name','email', 'avatar']
     Article.findByPk(id,{
       include:{model:User, attributes:attributes}
     })
@@ -201,12 +201,16 @@ class ControllerAction {
   }
 
   static getWriter(req, res, next) {
-    const id = req.params.id;
-    User.findOne({
-      id:id,
-      attributes: ['id','user_name','email'],
+    const id = Number(req.params.id);
+    User.findByPk(id, {
+      attributes: ['id','user_name','email', 'about_me', 'avatar'],
       include: { model: Article } 
     })
+    // User.findOne({
+    //   id:id,
+    //   attributes: ['id','user_name','email'],
+    //   include: { model: Article } 
+    // })
       .then(data => {
         res.status(200).json(data)
       })
@@ -233,12 +237,13 @@ class ControllerAction {
     const allMessage ={}
     Message.findAll({
       where: { UserId: req.user.userId },
-      include: { model: User, attributes:['user_name','email'] }
+      include: { model: User, attributes:['user_name','email', 'avatar'] }
     })
       .then(data => {
         allMessage.receive = data
         return Message.findAll({
-          where: {SenderId: req.user.userId}
+          where: {SenderId: req.user.userId},
+          include:{model: User, attributes:['user_name','email', 'avatar']}
         })
       })
       .then(theData=>{
@@ -275,6 +280,7 @@ class ControllerAction {
   static addResponse(req,res,next){
     const inputData = req.body
     const id = req.params.idmessage
+    console.log('REQ BODY', inputData)
     Response.create({
       response: inputData.response,
       date: Date.now(),

@@ -1,16 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function HomeSidebar(){
+export default function HomeSidebar({ data }){
   return(
     <div>
       <div className="sidebar-list">
         <div className="sidebar-number">
-          <h1>01</h1>
+          <h1>{ data.urutan }</h1>
         </div>
         <div className="sidebar-title">
-          <p className="popular-title-list">Why Svelte won’t kill React</p>
-          <p>John Au-Yeung</p>
-          <p>May 16</p>
+          <Link to={`/articles/${data.id}`}><p className="popular-title-list">{ data.title }</p></Link>
+          <p>Clap: {data.clap}</p>
         </div>
       </div>
     </div>

@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import { MeArticleList } from '../components'
+import { MeArticleList } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 export default function MeArticles(){
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const [articles, setArticles] = useState([]);
   const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3001/me/articles', {
+    fetch(`${url}/me/articles`, {
       headers:{
         access_token: localStorage.getItem('access_token')
       }
@@ -27,13 +34,14 @@ export default function MeArticles(){
       <div className="me-article-container">
         <div className="me-writer-header">
           <div className="me-writer-description">
-            <h3>Ananda Puja Wandra</h3>
-            <p>JVG is a writer/director in New York. Learn more and connect at</p>
+            <h3>{articles.user_name}</h3>
+            <p>{articles.about_me}</p>
           </div>
           <div className="me-writer-image">
-            <img src="https://miro.medium.com/fit/c/256/256/2*G5oeLMefA5QVJXJ9I68bSQ.png" alt="profilepic" />
+            <img src={articles.avatar} alt="profilepic" />
           </div>
         </div>
+        <h2>My Articles</h2>
         <div className="me-article-list">
           {
             articles.Articles !== undefined ? (

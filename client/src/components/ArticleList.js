@@ -7,10 +7,12 @@ export default function ArticleList({ data }){
       <div className="article-list-container">
         <div className="article-list-content">
           <Link to={`/articles/${data.id}`}><h1>{ data.title }</h1></Link>
-          <p className="article-list-p">{ data.body }</p>
-          <p className="article-list-category">{ data.category }</p>
-          <Link to={`/writer/${data.UserId}`}><p className="article-list-user-name">{ data.user_name }</p></Link>
-          <p className="article-list-date">{ data.createdAt}</p>
+          <p className="article-list-p">{ data.body.split(' ').splice(0, 5).join(' ') } ...</p>
+          <p className="article-list-category">category: { data.category }</p>
+          <div className="article-list-meta">
+            <Link to={`/writer/${data.UserId}`}><p className="article-list-user-name">{ data.User.user_name }</p></Link>
+            <p className="article-list-date">{ data.date.slice(0, 10) }</p>
+          </div>
         </div>
         <div className="article-list-image">
           <img src={data.img_url} alt="post-img" />
