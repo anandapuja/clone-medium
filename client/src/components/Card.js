@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 export default function Card({ data, changeStatus }){//props bisa mndpt data dari parent yaitu App.js
     
     function deleteBookmark(){
-        // console.log("entering delete bookmarked!!!!!!!!!!!!!")
         fetch(`http://localhost:3001/articles/${data.id}/unbookmark`,{
             method: 'DELETE',
             headers:{
-                access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s'
+                access_token: localStorage.getItem('access_token')
             }
         })
             .then(res => res.json())

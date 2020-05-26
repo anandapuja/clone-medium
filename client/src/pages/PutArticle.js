@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function PutArticle(props){
   const { id } = useParams();
@@ -47,13 +48,19 @@ export default function PutArticle(props){
       method: 'PUT', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
-        'access_token': `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s`
+        'access_token': localStorage.getItem('access_token')
       },
       body: JSON.stringify(reqBody),
     })
     .then(response => response.json())
     .then(data => {
-      props.history.push('/articles');
+      Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      )
+      // history.push('/me/articles');
+      props.history.push('/me/articles');
       setTitle('');
       setImg_Url('');
       setBody('');

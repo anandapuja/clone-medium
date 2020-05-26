@@ -31,7 +31,7 @@ export default function Header(){
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Medium_logo_Wordmark_Black.svg/1280px-Medium_logo_Wordmark_Black.svg.png" alt="logo" />
       </div></Link>
       <div className="right-header-container">
-        <Link to="/clapped"><img src="/images/clap.png" alt="clap" /></Link>
+        <Link to="/clapped"><img src="/images/clap-a.jpg" alt="clap" /></Link>
         <Link to="/bookmark"><img src="/images/bookmark.jpg" alt="clap" /></Link>
         <Link to="/me/articles"><img src="/images/me.png" alt="me" /></Link>
         <div className="create-story">

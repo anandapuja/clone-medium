@@ -26,7 +26,6 @@ export default function Home(){
     })
       .then(res => res.json())
       .then(data => {
-        // let dataPopuler;
         for(let i = 0; i < data.length; i++){
           data[i]['urutan'] = i+1
         }
@@ -36,6 +35,7 @@ export default function Home(){
   return (
     <div className="home-container">
       <div className="home-main">
+        <h2>Recent on Medium</h2>
         {
           articles.map(article =>(
             <ArticleList key={article.id} data={article}/>

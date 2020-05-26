@@ -32,6 +32,10 @@ p {
 .home-main {
   width: 70%;
 }
+.home-main h2{
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
 .home-sidebar{
   width: 30%;
 }
@@ -77,6 +81,7 @@ img{
 /* Sidebar */
 .sidebar-container h2{
   margin-bottom: 20px;
+  text-decoration: underline;
 }
 .sidebar-list{
   display: flex;

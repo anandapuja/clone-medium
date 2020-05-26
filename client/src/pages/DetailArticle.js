@@ -5,9 +5,10 @@ export default function DetailArticle(){
   const [article, setArticle] = useState({});
   const [clapThis, setClapThis] = useState(false);
   const [bookmarks, setBookmarks] = useState('');
-  const [bookmarkStatus, setBookmarkStatus] = useState(false);
+  const [bookmarkStatus, setBookmarkStatus] = useState([]);
   const { id } = useParams();
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
+  const [bookmarkThis, setBookmarkThis] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3001/articles/${id}`,{
@@ -32,7 +33,16 @@ export default function DetailArticle(){
       .then(data => {
         setBookmarks(data);
       })
-  }, [])
+  }, [bookmarkThis])
+  
+    useEffect(() => {
+      if(bookmarks.length !== 0){
+        const stats = bookmarks.filter(mark => {
+          return mark.ArticleId == article.id
+        })
+        setBookmarkStatus(stats)
+      }
+    },[bookmarks, article, bookmarkThis])
 
   const clap = () => {
     fetch(`http://localhost:3001/articles/${id}/clap`,{
@@ -47,13 +57,17 @@ export default function DetailArticle(){
       })
   }
 
-  if(bookmarks && article){
-    for( let i = 0; i < bookmarks.length; i++){
-      if(article.id === bookmarks[i].ArticleId){
-        setBookmarkStatus(true);
-        // console.log('TRUE')
+  const bookmark = () => {
+    fetch(`http://localhost:3001/articles/${article.id}/bookmark`,{
+      method: 'PUT',
+      headers:{
+        access_token: localStorage.getItem('access_token')
       }
-    }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setBookmarkThis(!bookmarkThis);
+      })
   }
 
   return(
@@ -81,7 +95,9 @@ export default function DetailArticle(){
                 <div className="clapped">
                   { article.clap === 0 ? <img onClick={clap} src="/images/clap.png" alt="clap" /> : <><img onClick={clap} src="/images/clap-a.jpg" alt="clap" /> <p>{article.clap}</p></> }
                 </div>
-                  { bookmarkStatus === false ? <img src="/images/bookmark.jpg" alt="clap" /> : <><img src="/images/bookmark-a.png" alt="clap" /></> }
+                  { bookmarkStatus.length == 0 ? <img onClick={bookmark} src="/images/bookmark.jpg" alt="clap" /> : <><Link to="/bookmark"><img src="/images/bookmark-a.png" alt="clap" /></Link></> }
+                  {/* <img src="/images/bookmark.jpg" alt="clap" /> */}
+
               </div>
               <div className="detail-writer">
                 <div className="detail-writer-image">
