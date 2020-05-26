@@ -237,12 +237,13 @@ class ControllerAction {
     const allMessage ={}
     Message.findAll({
       where: { UserId: req.user.userId },
-      include: { model: User, attributes:['user_name','email'] }
+      include: { model: User, attributes:['user_name','email', 'avatar'] }
     })
       .then(data => {
         allMessage.receive = data
         return Message.findAll({
-          where: {SenderId: req.user.userId}
+          where: {SenderId: req.user.userId},
+          include:{model: User, attributes:['user_name','email', 'avatar']}
         })
       })
       .then(theData=>{

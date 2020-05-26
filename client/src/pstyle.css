@@ -662,3 +662,58 @@ img{
   color: rgb(180, 179, 179);
   margin-left: 10px;
 }
+/* Message */
+.message-container{
+  width: 980px;
+  display: flex;
+  margin: auto;
+}
+.message-left-right{
+  height: 600px;
+  width: 50%;
+  overflow: scroll;
+  background-color: rgb(226, 226, 225);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(158, 158, 158, 0.07), 
+                0 2px 4px rgba(158, 158, 158, 0.07), 
+                0 4px 8px rgba(158, 158, 158, 0.07), 
+                0 8px 16px rgba(158, 158, 158, 0.07),
+                0 16px 32px rgba(158, 158, 158, 0.07), 
+                0 32px 64px rgba(158, 158, 158, 0.07);
+}
+.message-left-right h2{
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+.message-list-container{
+  padding:10px;
+  margin-bottom: 10px;
+  background-color: #ccc;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(158, 158, 158, 0.07), 
+                0 2px 4px rgba(158, 158, 158, 0.07), 
+                0 4px 8px rgba(158, 158, 158, 0.07), 
+                0 8px 16px rgba(158, 158, 158, 0.07),
+                0 16px 32px rgba(158, 158, 158, 0.07), 
+                0 32px 64px rgba(158, 158, 158, 0.07);
+  border-bottom: 1px solid rgb(133, 131, 131);
+}
+.message-detail-container{
+  padding:10px;
+  margin-bottom: 40px;
+  background-color: #ccc;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(158, 158, 158, 0.07), 
+                0 2px 4px rgba(158, 158, 158, 0.07), 
+                0 4px 8px rgba(158, 158, 158, 0.07), 
+                0 8px 16px rgba(158, 158, 158, 0.07),
+                0 16px 32px rgba(158, 158, 158, 0.07), 
+                0 32px 64px rgba(158, 158, 158, 0.07);
+  border-bottom: 1px solid rgb(133, 131, 131);
+}
+.response-message-detail{
+  margin-top: 30px;
+  text-decoration: underline;
+}

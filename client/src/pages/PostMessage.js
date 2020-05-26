@@ -27,7 +27,6 @@ const PostMessage = () => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       setTitle_Message('');
       setBody_Message('');
     })

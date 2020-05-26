@@ -7,3 +7,5 @@ export { default as WriterList } from './WriterList';
 export { default as ClapList } from './ClapList';
 export { default as FooterNoLogin } from './FooterNoLogin';
 export { default as Footer } from './Footer';
+export { default as RecievedList } from './RecievedList';
+export { default as SentList } from './SentList';

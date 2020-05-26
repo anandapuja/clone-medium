@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark,Login,Register } from './pages';
+import { Articles, DetailArticle, MeArticles, AddArticle, Writer, Home, Clap, PutArticle, PostMessage, Bookmark, Login, Register, Message, ResponseMessage } from './pages';
 import { Header, HeaderNoLogin, Footer, FooterNoLogin } from './components'
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
           <Route path="/bookmark"> <Bookmark/> </Route>
           <Route path="/login"> <Login/> </Route>
           <Route path="/register"> <Register/> </Route>
+          <Route exact path="/message" component={ Message } />
+          <Route path="/message/:id" component={ ResponseMessage } />
         </Switch>
         {
           localStorage.getItem('access_token') ? <Footer /> : <FooterNoLogin />
