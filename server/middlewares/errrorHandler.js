@@ -5,12 +5,14 @@ function errorHandler(err, req, res, next) {
       case 'SequelizeValidationError':
         if(err.errors[0].validatorKey === 'notEmpty'){
           res.status(400).json({
+            status: 400,
             message: `${err.errors[0].path} can not be emtpy!`
           })
         }
         break;
       case 'SequelizeUniqueConstraintError':
         res.status(400).json({
+          status: 400,
           message: `${err.errors[0].value} already exist!`
         })
         break;
