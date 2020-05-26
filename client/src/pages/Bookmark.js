@@ -10,7 +10,7 @@ export default function Bookmark () {
         let url = `http://localhost:3001/articles/me/bookmarked`
         fetch(url, {
             headers:{
-                access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJFbWFpbCI6ImFuYW5kYXB1amFAZ21haWwuY29tIiwiaWF0IjoxNTkwMDY5MDk2fQ.xgXkAyPdTbYz4hAFN8UPnaqpZWm0G7hsYhED1_Qc3_s'
+                access_token: localStorage.getItem('access_token')
             }
         })
             .then(resp=>resp.json())

@@ -19,7 +19,7 @@ export default function Card({ data, changeStatus }){//props bisa mndpt data dar
     }
 
     return(
-        <div className="card">
+        <div className="card-container">
             <div className="card-body">
                 <Link to={`/articles/${data.id}`}><h2 className="titleBookmark">{ data.title }</h2></Link>
                 <p>Write by: { data.User.user_name }</p>

@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function AddArticle(){
+  const history = useHistory();
+
   const [title, setTitle] = useState('')
   const [img_url, setImg_Url] = useState('')
   const [body, setBody] = useState('')
@@ -33,6 +37,12 @@ export default function AddArticle(){
     })
     .then(response => response.json())
     .then(data => {
+      Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      )
+      history.push('/');
       setTitle('');
       setImg_Url('');
       setBody('');

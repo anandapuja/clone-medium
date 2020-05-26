@@ -6,8 +6,8 @@ const ClapList = ({ clap }) => {
     <div className="clap-container">
       <Link to={`/articles/${clap.Article.id}`}><h3>{clap.Article.title}</h3></Link>
       <div className="clap-meta">
-        <p>{clap.Article.User.user_name}</p>
-        <p>{clap.Article.date}</p>
+        <Link to={`/writer/${clap.UserId}`}><p>write by: {clap.Article.User.user_name}</p></Link>
+        <p>on : {clap.Article.date.slice(0,10)}</p>
       </div>
     </div>
   )

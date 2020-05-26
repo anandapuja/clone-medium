@@ -16,7 +16,7 @@ class ControllerAction {
 
   static getArticle(req, res, next) {
     const id = req.params.id;
-    const attributes= ['user_name','email']
+    const attributes= ['user_name','email', 'avatar']
     Article.findByPk(id,{
       include:{model:User, attributes:attributes}
     })
@@ -201,12 +201,16 @@ class ControllerAction {
   }
 
   static getWriter(req, res, next) {
-    const id = req.params.id;
-    User.findOne({
-      id:id,
-      attributes: ['id','user_name','email'],
+    const id = Number(req.params.id);
+    User.findByPk(id, {
+      attributes: ['id','user_name','email', 'about_me', 'avatar'],
       include: { model: Article } 
     })
+    // User.findOne({
+    //   id:id,
+    //   attributes: ['id','user_name','email'],
+    //   include: { model: Article } 
+    // })
       .then(data => {
         res.status(200).json(data)
       })

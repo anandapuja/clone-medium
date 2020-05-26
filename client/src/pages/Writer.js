@@ -25,7 +25,7 @@ export default function Writer(){
         <div className="me-writer-header">
           <div className="me-writer-description">
             <div className="me-writer-description-name-message">
-              <h3>Ananda Puja Wandra</h3>
+              <h3>{ writer.user_name }</h3>
               <Link to={`/writer/${id}/send-message`}>
                 <div className="me-writer-message">
                   <img src="/images/message.png" alt="message" />
@@ -33,10 +33,10 @@ export default function Writer(){
                 </div>
               </Link>
             </div>
-            <p>JVG is a writer/director in New York. Learn more and connect at</p>
+            <p>{ writer.about_me }</p>
           </div>
           <div className="me-writer-image">
-            <img src="https://miro.medium.com/fit/c/256/256/2*G5oeLMefA5QVJXJ9I68bSQ.png" alt="profilepic" />
+            <img src={ writer.avatar } alt="profilepic" />
           </div>
         </div>
         <div className="me-article-list">

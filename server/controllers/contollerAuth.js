@@ -6,6 +6,7 @@ require('dotenv').config();
 class ControllerAuth{
   static register(req,res,next){
     const inputData = req.body;
+    console.log('INPUT DATA',inputData)
     User.create(inputData)
     .then(data=>{
       const token = jwt.sign({
