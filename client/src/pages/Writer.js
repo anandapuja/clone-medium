@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { WriterList } from '../components';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import url from '../url';
 
 export default function Writer(){
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const { id } = useParams();
   const [writer, setWriter] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/writer/${id}`, {
+    fetch(`${url}/writer/${id}`, {
       headers:{
         access_token: localStorage.getItem('access_token')
       }

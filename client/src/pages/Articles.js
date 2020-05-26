@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { ArticleList, HomeSidebar } from '../components'
+import { ArticleList, HomeSidebar } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
-export default function Home(){
+export default function Home({logStatus}){
+  
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+
   const [articles, setArticles] = useState([]);
   const [popular, setPopular] = useState([]);
-
+  
   useEffect(() => {
-    fetch('http://localhost:3001/articles', {
+    fetch(`${url}/articles`, {
       headers: {
         'Content-Type': 'application/json',
         access_token: localStorage.getItem('access_token')
@@ -19,7 +27,7 @@ export default function Home(){
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/popular`,{
+    fetch(`${url}/popular`,{
       headers:{
         access_token: localStorage.getItem('access_token')
       }
@@ -33,7 +41,7 @@ export default function Home(){
       })
   }, [])
   return (
-    <div className="home-container">
+    <div className="home-container-article">
       <div className="home-main">
         <h2>Recent on Medium</h2>
         {

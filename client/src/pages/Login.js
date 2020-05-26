@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Button,Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import url from '../url';
 
-export default ()=>{
-
+export default ({logStatus})=>{
     const history = useHistory();
 
     const [email,setEmail] = useState("");
@@ -18,14 +18,13 @@ export default ()=>{
         setPassword(e.target.value);
     }
 
-
     function submitLogin(e){
         e.preventDefault();
         let data = {
             email:email,
             password:password
         }
-        fetch('http://localhost:3001/login', {
+        fetch(`${url}/login`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -40,6 +39,7 @@ export default ()=>{
                 'success'
               )
             localStorage.setItem("access_token",data.access_token);
+            logStatus(true);
             history.push('/add-article');
         })
         .catch((error) => {

@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { RecievedList, SentList } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 const Message = () => {
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
 
   const [ messages, setMessages ] = useState({});
   const { receive } = messages;
   const { send } = messages;
 
   useEffect(() => {
-    fetch(`http://localhost:3001/messages`,{
+    fetch(`${url}/messages`,{
       headers:{
         access_token: localStorage.getItem('access_token')
       }

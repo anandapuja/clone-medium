@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import url from '../url';
 
 export default function DetailArticle(){
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const [article, setArticle] = useState({});
   const [clapThis, setClapThis] = useState(false);
   const [bookmarks, setBookmarks] = useState('');
@@ -11,7 +17,7 @@ export default function DetailArticle(){
   const [bookmarkThis, setBookmarkThis] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/articles/${id}`,{
+    fetch(`${url}/articles/${id}`,{
       headers:{
         "access_token": localStorage.getItem('access_token')
       }
@@ -24,7 +30,7 @@ export default function DetailArticle(){
   },[clapThis])
 
   useEffect(() => {
-    fetch(`http://localhost:3001/articles/me/bookmarked`, {
+    fetch(`${url}/articles/me/bookmarked`, {
       headers: {
         access_token: localStorage.getItem('access_token')
       }
@@ -45,7 +51,7 @@ export default function DetailArticle(){
     },[bookmarks, article, bookmarkThis])
 
   const clap = () => {
-    fetch(`http://localhost:3001/articles/${id}/clap`,{
+    fetch(`${url}/articles/${id}/clap`,{
       method: 'PUT',
       headers: {
         "access_token": localStorage.getItem('access_token')
@@ -58,7 +64,7 @@ export default function DetailArticle(){
   }
 
   const bookmark = () => {
-    fetch(`http://localhost:3001/articles/${article.id}/bookmark`,{
+    fetch(`${url}/articles/${article.id}/bookmark`,{
       method: 'PUT',
       headers:{
         access_token: localStorage.getItem('access_token')

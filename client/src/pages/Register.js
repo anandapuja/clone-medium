@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Button,Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import url from '../url';
 
-export default (props)=>{
-
+export default ({logStatus})=>{
     const history = useHistory();
 
     const [email,setEmail] = useState("");
@@ -15,33 +15,27 @@ export default (props)=>{
 
 
     function onChangeEmail(e){
-        // console.log(e.target.value,"email================")
         setEmail(e.target.value);
     }
 
     function onChangePassword(e){
-        // console.log(e.target.value,"password=================")
         setPassword(e.target.value);
     }
 
     function onChangeUsername(e){
-        // console.log(e.target.value,"password=================")
         setUsername(e.target.value);
     }
 
     function onChangeAvatar(e){
-        // console.log(e.target.value,"password=================")
         setAvatar(e.target.value);
     }
 
     function onChangeAbout(e){
-        // console.log(e.target.value,"password=================")
         setAbout(e.target.value);
     }
 
     function submitRegister(e){
         e.preventDefault();
-        console.log("masuk sumbit login===================")
         let data = {
             email:email,
             user_name:username,
@@ -49,7 +43,7 @@ export default (props)=>{
             avatar:avatar,
             about_me:about
         }
-        fetch('http://localhost:3001/register', {
+        fetch(`${url}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,6 +58,7 @@ export default (props)=>{
                 'success'
               )
             localStorage.setItem("access_token",data.access_token);
+            logStatus(true);
             history.push('/add-article');
         })
         .catch((error) => {

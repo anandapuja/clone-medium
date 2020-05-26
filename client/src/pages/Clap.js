@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ClapList } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 const Clap = () => {
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+
   const [clapped, setClapped] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/articles/me/clapped`,{
+    fetch(`${url}/articles/me/clapped`,{
       headers:{
         access_token: localStorage.getItem('access_token')
       }

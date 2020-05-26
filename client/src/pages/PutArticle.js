@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import url from '../url';
 
 export default function PutArticle(props){
-  const { id } = useParams();
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
 
+  const { id } = useParams();
   const [title, setTitle] = useState('')
   const [img_url, setImg_Url] = useState('')
   const [body, setBody] = useState('')
   const [category, setCategory] = useState('')
 
   useEffect(() => {
-    fetch(`http://localhost:3001/articles/${id}`,{
+    fetch(`${url}/articles/${id}`,{
       headers:{
         access_token: localStorage.getItem('access_token')
       }
@@ -44,7 +49,7 @@ export default function PutArticle(props){
       title, img_url, body, category
     }
     console.log(reqBody)
-    fetch(`http://localhost:3001/me/articles/${id}`, {
+    fetch(`${url}/me/articles/${id}`, {
       method: 'PUT', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

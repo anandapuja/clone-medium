@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import url from '../url';
 
 const ResponseMessage = () => {
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const { id } = useParams();
   const [message, setMessage] = useState({});
   const [response, setResponse] = useState('');
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/messages/${id}`,{
+    fetch(`${url}/messages/${id}`,{
       headers:{
         access_token: localStorage.getItem('access_token')
       }
@@ -28,7 +34,7 @@ const ResponseMessage = () => {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: `http://localhost:3001/messages/${id}/response`,
+      url: `${url}/messages/${id}/response`,
       headers:{
         access_token: localStorage.getItem('access_token')
       },

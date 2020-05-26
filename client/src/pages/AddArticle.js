@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import url from '../url';
 
 export default function AddArticle(){
   const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
 
   const [title, setTitle] = useState('')
   const [img_url, setImg_Url] = useState('')
@@ -27,7 +31,7 @@ export default function AddArticle(){
     const reqBody = {
       title, img_url, body, category
     }
-    fetch('http://localhost:3001/articles', {
+    fetch(`${url}/articles`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

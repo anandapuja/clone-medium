@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-export default function Header(){
+export default function Header({logoutStatus}){
   const history = useHistory();
 
   const logout = () => {
@@ -21,6 +21,7 @@ export default function Header(){
           'success'
         )
         localStorage.removeItem('access_token');
+        logoutStatus(false)
         history.push('/login');
       }
     })

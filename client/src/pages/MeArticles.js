@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import { MeArticleList } from '../components'
+import { MeArticleList } from '../components';
+import url from '../url';
+import { useHistory } from 'react-router-dom';
 
 export default function MeArticles(){
+  const history = useHistory();
+  if(!localStorage.getItem('access_token')){
+    history.push('/');
+  }
+  
   const [articles, setArticles] = useState([]);
   const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3001/me/articles', {
+    fetch(`${url}/me/articles`, {
       headers:{
         access_token: localStorage.getItem('access_token')
       }

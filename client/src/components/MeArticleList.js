@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Swal from 'sweetalert2';
+import url from '../url';
 
 export default function MeArticleList({ article, user, deleted }){
   const deleteRequest = (articleId) => {
@@ -18,7 +19,7 @@ export default function MeArticleList({ article, user, deleted }){
           'Your article have been deleted.',
           'success'
         )
-        fetch(`http://localhost:3001/me/articles/${articleId}`,{
+        fetch(`${url}/me/articles/${articleId}`,{
           method: 'DELETE',
           headers:{
             access_token: localStorage.getItem('access_token')

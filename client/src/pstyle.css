@@ -370,6 +370,14 @@ img{
 .home-container{
   width: 980px;
   margin: auto;
+  padding: 30px 0;
+  /* display: flex;
+  margin: 0 auto;
+  padding: 30px 0; */
+}
+.home-container-article{
+  width: 980px;
+  margin: auto;
   display: flex;
   margin: 0 auto;
   padding: 30px 0;

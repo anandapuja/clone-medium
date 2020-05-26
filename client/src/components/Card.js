@@ -1,11 +1,12 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import url from '../url';
 
 export default function Card({ data, changeStatus }){//props bisa mndpt data dari parent yaitu App.js
     
     function deleteBookmark(){
-        fetch(`http://localhost:3001/articles/${data.id}/unbookmark`,{
+        fetch(`${url}/articles/${data.id}/unbookmark`,{
             method: 'DELETE',
             headers:{
                 access_token: localStorage.getItem('access_token')
