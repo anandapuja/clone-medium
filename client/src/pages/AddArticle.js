@@ -41,16 +41,24 @@ export default function AddArticle(){
     })
     .then(response => response.json())
     .then(data => {
-      Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-      )
-      history.push('/');
-      setTitle('');
-      setImg_Url('');
-      setBody('');
-      setCategory('');
+      if(data.message){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: data.message,
+        })
+      } else {
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
+        history.push('/');
+        setTitle('');
+        setImg_Url('');
+        setBody('');
+        setCategory('');
+      }
     })
     .catch((error) => {
       console.error('Error:', error);

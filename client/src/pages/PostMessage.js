@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import url from '../url';
+import Swal from 'sweetalert2';
 
 const PostMessage = () => {
   const history = useHistory();
@@ -33,8 +34,17 @@ const PostMessage = () => {
     })
     .then(response => response.json())
     .then(data => {
-      setTitle_Message('');
-      setBody_Message('');
+      if(data.message){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: data.message,
+        })
+      } else {
+        history.push('/message');
+        setTitle_Message('');
+        setBody_Message('');
+      }
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -46,10 +56,10 @@ const PostMessage = () => {
       <h1>CREATE MESSAGE</h1>
       <form onSubmit={submit}>
         <div className="add-form-div">
-          <input onChange={titleMessage} type="text" placeholder="Subject" />
+          <input onChange={titleMessage} type="text" placeholder="Subject" value={title_message} />
         </div>
         <div className="add-form-div">
-          <textarea onChange={titleBody} placeholder="Message"></textarea>
+          <textarea onChange={titleBody} placeholder="Message" value={body_message}></textarea>
         </div>
         <div className="add-form-div">
           <button type="submit">SEND</button>
