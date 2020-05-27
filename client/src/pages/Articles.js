@@ -23,7 +23,10 @@ export default function Home({logStatus}){
       .then(res => res.json())
       .then(data => {
         setArticles(data);
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }, []);
 
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Home({logStatus}){
       <div className="home-main">
         <h2>Recent on Medium</h2>
         {
-          articles.map(article =>(
+          articles && articles.map(article =>(
             <ArticleList key={article.id} data={article}/>
           ))
         }

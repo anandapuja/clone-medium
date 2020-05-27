@@ -33,14 +33,22 @@ export default ({logStatus})=>{
             })
         .then(response => response.json())
         .then(data => {
-            Swal.fire(
-                'Welcome!',
-                'Let`s create your story!',
-                'success'
-              )
-            localStorage.setItem("access_token",data.access_token);
-            logStatus(true);
-            history.push('/add-article');
+            if(data.message){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: data.message,
+                  })
+            } else {
+                Swal.fire(
+                    'Welcome!',
+                    'Let`s create your story!',
+                    'success'
+                  )
+                localStorage.setItem("access_token",data.access_token);
+                logStatus(true);
+                history.push('/add-article');
+            }
         })
         .catch((error) => {
             console.error('Error:', error);

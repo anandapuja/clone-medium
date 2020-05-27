@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import url from '../url';
+import Swal from 'sweetalert2';
 
 const ResponseMessage = () => {
   const history = useHistory();
@@ -43,7 +44,15 @@ const ResponseMessage = () => {
       }
     })
       .then(({data}) => {
+        history.push(`/message/${id}`);
         setStatus(!status)
+      })
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill response field',
+        })
       })
   }
   
@@ -54,7 +63,7 @@ const ResponseMessage = () => {
         <p>Date: { message.date }</p>
         <p>Body: { message.body_message }</p>
         <div className="response-message-detail">
-          <h4>Your Reponses</h4>
+          <h4>Your Reponses Sent</h4>
           {
             message.Responses && message.Responses.map(res => (
               <p key={res.id}>{res.response}</p>
